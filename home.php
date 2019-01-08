@@ -46,7 +46,6 @@
       <?php while(have_posts()): the_post(); ?>
 
         <!-- <?php the_content(); ?> -->
-        <!-- <?php the_excerpt(); ?> -->
         <!-- <?php the_time(); ?> -->
         <?php $featuredImg = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'full')[0]; ?>
         <?php if ($featuredImg): ?>
@@ -61,6 +60,9 @@
                 <?php the_title(); ?>
               </a>
             </p>
+            <div class="blog-content__post__excerpt">
+              <?php the_excerpt(); ?>
+            </div>
             <p class="blog-content__post__date">
               <?php the_time(get_option('date_format')); ?>
             </p>

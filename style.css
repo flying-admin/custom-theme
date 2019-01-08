@@ -2016,6 +2016,23 @@ a, a:focus, button, button:focus {
   opacity: 0.85;
 }
 
+.blog-content__post .blog-content__post__excerpt {
+  display: block;
+  font-family: "PT serif", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+
+.blog-content__post .blog-content__post__excerpt p {
+  margin: 0;
+}
+
+.blog-content__post .blog-content__post__excerpt p + p {
+  margin: 8px 0 0;
+}
+
 .blog-content__post .blog-content__post__date {
   display: block;
   font-family: "Montserrat", sans-serif;

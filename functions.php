@@ -277,6 +277,16 @@ function custom_classes( $classes ) {
 }
 add_filter( 'body_class', 'custom_classes' );
 
+function custom_excerpt_length( $length ) {
+  return 25;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 1);
+
+function custom_excerpt_more( $more ) {
+  return ' ...';
+}
+add_filter('excerpt_more', 'custom_excerpt_more', 1);
+
 class Child_Wrap extends Walker_Nav_Menu {
   function start_lvl(&$output, $depth = 0, $args = array()){
     $indent = str_repeat("\t", $depth);
