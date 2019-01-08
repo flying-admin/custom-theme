@@ -8,6 +8,8 @@ function fp_register_menu() {
 }
 add_action( 'init', 'fp_register_menu' );
 
+add_theme_support( 'post-thumbnails' );
+
 /* ----- ONLY FOR SPA ----- */
 function new_spa_menu_items($items, $args) {
 
@@ -254,7 +256,7 @@ function custom_classes( $classes ) {
   if(get_option('is_sticky_menu')){
     $classes[] = 'header--always-sticky';
   }
-  if (is_page_template('fullwidth-solid.php') || is_page_template('contained-solid.php')){
+  if (is_page_template('fullwidth-solid.php') || is_page_template('contained-solid.php') || is_single() || is_home()){
     $classes[] = 'header--always-solid';
   }
   if(get_option('is_simple_footer')){
