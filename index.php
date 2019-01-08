@@ -1,73 +1,22 @@
 <?php get_header(); ?>
-<div class="blog-wrapper">
+  <main class="site-content">
+    <div class="container-fluid">
+      <?php
+        $page = get_post();
+        $query = new WP_Query();
+        $all_pages = $query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'orderby'=>'menu_order', 'order' => 'ASC'));
+        $children = get_page_children($page->ID, $all_pages);
+        $items = [$page];
 
-  <div class="blog-topbar">
-    <ul class="blog-topbar__breadcrumbs">
-      <li><a href="<?php echo get_home_url(); ?>">Inicio</a></li>
-      <li><?php echo get_the_title(get_option('page_for_posts')); ?></li>
-    </ul>
-  </div>
+        if( get_option('is_single_page') && is_array($children) &! empty($children)){
+          $items = array_merge([$page],$children);
+        }
 
-  <div class="blog-header">
-    <h1 class="blog-header__title">
-      <?php echo get_the_title(get_option('page_for_posts')); ?>
-    </h1>
-    <div class="blog-header__search">
-      <?php get_search_form(); ?>
+        foreach($items as $post){
+          setup_postdata($post);
+          get_template_part("content", "page");
+        }
+      ?>
     </div>
-  </div>
-
-  <?php if(have_posts()): ?>
-
-    <div class="blog-content">
-
-      <?php while(have_posts()): the_post(); ?>
-
-        <!-- <?php the_content(); ?> -->
-        <!-- <?php the_excerpt(); ?> -->
-        <!-- <?php the_time(); ?> -->
-        <?php $featuredImg = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'full')[0]; ?>
-        <?php if ($featuredImg): ?>
-          <div class="blog-content__post blog-content__post--image">
-            <div class="blog-content__post--inner" style="background-image: url(<?php echo $featuredImg; ?>)">
-        <?php else: ?>
-          <div class="blog-content__post">
-            <div class="blog-content__post--inner">
-        <?php endif; ?>
-            <p class="blog-content__post__title">
-              <a href="<?php the_permalink(); ?>">
-                <?php the_title(); ?>
-              </a>
-            </p>
-            <p class="blog-content__post__date">
-              <?php the_time(get_option('date_format')); ?>
-            </p>
-            <p class="blog-content__post__category">
-              <?php the_category(', '); ?>
-            </p>
-          </div>
-        </div>
-
-      <?php endwhile; ?>
-
-    </div>
-
-    <div class="blog-pagination">
-      <?php echo paginate_links([
-        'prev_text' => '&lsaquo;',
-        'next_text' => '&rsaquo;',
-        'before_page_number' => '<span>',
-      	'after_page_number'  => '</span>'
-      ]); ?>
-    </div>
-
-  <?php else: ?>
-
-    <br /><br />
-    <h3>No hay entradas del blog aún.</h3>
-    <br /><br />
-
-  <?php endif; ?>
-
-</div>
+  </main>
 <?php get_footer(); ?>

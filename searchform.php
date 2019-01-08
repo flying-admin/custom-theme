@@ -7,6 +7,7 @@
 </form>
 <script>
   $(function(){
+
     $('.search-form--custom .search-field').on('change input', function(){
       let inp = $(this);
       let btn = inp.siblings('.search-submit');
@@ -17,5 +18,7 @@
         btn.attr('disabled', true);
       }
     });
+
+    $('.search-form--custom .search-field').trigger('change');
   });
 </script>

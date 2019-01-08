@@ -1713,7 +1713,13 @@ a, a:focus, button, button:focus {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 1542px;
   padding: 180px 15px 80px;
+  margin: 0 auto;
+}
+
+.blog-wrapper.blog-wrapper--content {
+  padding-top: 60px;
 }
 
 .blog-wrapper .blog-topbar,
@@ -2079,16 +2085,60 @@ a, a:focus, button, button:focus {
 
 
 .blog-pagination {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   text-align: center;
 }
 
 .blog-pagination .page-numbers {
-
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin: 0 10px;
+  color: #999;
+  text-decoration: none;
+  transition: all 0.3s ease-out 0s;
 }
 
-.blog-pagination .page-numbers::after {
+.blog-pagination .page-numbers:not(.current):hover {
+  color: #333;
+}
 
+.blog-pagination .page-numbers:not(.prev):not(.next)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: #e8e8ea;
+  transition: all 0.3s ease-out 0s;
+}
+
+.blog-pagination .page-numbers.current {
+  color: #00338d;
+}
+
+.blog-pagination .page-numbers.current::after {
+  background-color: #00338d !important;
+}
+
+.blog-pagination .page-numbers.prev,
+.blog-pagination .page-numbers.next {
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  transform: translateY(5px);
+  margin: 0;
 }
 
 

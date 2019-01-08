@@ -256,8 +256,17 @@ function custom_classes( $classes ) {
   if(get_option('is_sticky_menu')){
     $classes[] = 'header--always-sticky';
   }
-  if (is_page_template('fullwidth-solid.php') || is_page_template('contained-solid.php') || is_single() || is_home()){
-    $classes[] = 'header--always-solid';
+  if (is_page_template('fullwidth-solid.php') || is_page_template('contained-solid.php') || is_single() || is_search() || is_home()){
+    if(is_home()){
+      $posts_page_id = get_option('page_for_posts');
+      $posts_page = get_post($posts_page_id);
+      if(!$posts_page->post_content){
+        $classes[] = 'header--always-solid';
+      }
+    }
+    else {
+      $classes[] = 'header--always-solid';
+    }
   }
   if(get_option('is_simple_footer')){
     $classes[] = 'footer--always-simple';
