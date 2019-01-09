@@ -6,11 +6,11 @@
 
       <div class="post-topbar">
         <ul class="post-topbar__breadcrumbs">
-          <li><a href="<?php echo get_home_url(); ?>">Inicio</a></li>
+          <li><a href="<?php echo get_home_url(); ?>"><?php echo __('Home', 'custom-widgets'); ?></a></li>
           <li><a href="<?php echo get_permalink(get_option('page_for_posts')); ?>"><?php echo get_the_title(get_option('page_for_posts')); ?></a></li>
           <li><?php the_title(); ?></li>
         </ul>
-        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="post-topbar__back">Volver</a>
+        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="post-topbar__back"><?php echo __('Go back', 'custom-widgets'); ?></a>
       </div>
 
       <!-- <?php the_permalink(); ?> -->
@@ -60,7 +60,7 @@
   <?php else: ?>
 
     <div class="post-search">
-      <h3>Buscar posts:</h3>
+      <h3><?php echo __('What are you looking for?', 'custom-widgets'); ?></h3>
       <?php get_search_form(); ?>
     </div>
 

@@ -4,7 +4,7 @@
 
   <div class="blog-topbar">
     <ul class="blog-topbar__breadcrumbs">
-      <li><a href="<?php echo get_home_url(); ?>">Inicio</a></li>
+      <li><a href="<?php echo get_home_url(); ?>"><?php echo __('Home', 'custom-widgets'); ?></a></li>
       <li><?php echo get_the_title(get_option('page_for_posts')); ?></li>
     </ul>
   </div>
@@ -66,7 +66,7 @@
   <?php else: ?>
 
     <div class="blog-content">
-      <h4 style="padding-left: 20px;">No hay entradas del blog que coincidan con la busqueda.</h4>
+      <h4 style="padding-left: 20px;"><?php echo __('There are no blog entries for your search', 'custom-widgets') ?>.</h4>
       <br /><br /><br /><br /><br />
     </div>
 
