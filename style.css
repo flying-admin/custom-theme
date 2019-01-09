@@ -179,6 +179,7 @@ a, a:focus, button, button:focus {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+  padding-top: 20px;
 }
 
 
@@ -2086,6 +2087,8 @@ a, a:focus, button, button:focus {
 
 .blog-content__post .blog-content__post__category a {
   color: #00338D;
+  text-decoration: none;
+  pointer-events: none;
 }
 .blog-content__post .blog-content__post__category a:hover {
   color: #00338D;
@@ -2285,6 +2288,7 @@ a, a:focus, button, button:focus {
 .post-content .post-content__header .post-content__header__sub .post-content__header__sub__info a {
   color: #00338D;
   text-decoration: none;
+  pointer-events: none;
 }
 .post-content .post-content__header .post-content__header__sub .post-content__header__sub__info a:hover {
   color: #00338D;
