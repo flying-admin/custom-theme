@@ -2033,6 +2033,14 @@ a, a:focus, button, button:focus {
 .blog-content__post .blog-content__post__excerpt p + p {
   margin: 8px 0 0;
 }
+.blog-content__post--image .blog-content__post__excerpt {
+  position: relative;
+  z-index: 2;
+}
+.blog-content__post--image .blog-content__post__excerpt,
+.blog-content__post--image .blog-content__post__excerpt p {
+  color: #FFFFFF;
+}
 
 .blog-content__post .blog-content__post__date {
   display: block;
